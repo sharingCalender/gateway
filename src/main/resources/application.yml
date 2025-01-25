@@ -6,3 +6,5 @@ spring:
   config:
     import: optional:configserver:http://${username}:${password}@localhost:9000
 
+  jwt:
+    secret: ${secret.key}
