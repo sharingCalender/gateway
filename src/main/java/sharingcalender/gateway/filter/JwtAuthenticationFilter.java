@@ -52,7 +52,7 @@ public class JwtAuthenticationFilter implements GlobalFilter, Ordered {
         String authorization = exchange.getRequest().getHeaders()
             .getFirst(HttpHeaders.AUTHORIZATION);
 
-        if (authorization != null && authorization.startsWith("Bearer")) {
+        if (authorization != null && authorization.startsWith("Bearer ")) {
             return authorization.substring(7);
         }
 
@@ -62,6 +62,8 @@ public class JwtAuthenticationFilter implements GlobalFilter, Ordered {
     private boolean isValidToken(String token) {
 
         try {
+            System.out.println(jwtAuthenticationConfig.getSecretKey());
+
             Jwts.parser().verifyWith(jwtAuthenticationConfig.getSecretKey()).build()
                 .parseSignedClaims(token);
             return true;
