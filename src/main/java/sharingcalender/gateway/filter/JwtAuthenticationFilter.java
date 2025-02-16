@@ -23,6 +23,7 @@ public class JwtAuthenticationFilter implements GlobalFilter, Ordered {
     public Mono<Void> filter(ServerWebExchange exchange, GatewayFilterChain chain) {
         // msa 다른 서비스 요청 넘기기전에 실행할 로직
 
+
         String token = getToken(exchange);
 
         if (token == null) {
@@ -62,8 +63,6 @@ public class JwtAuthenticationFilter implements GlobalFilter, Ordered {
     private boolean isValidToken(String token) {
 
         try {
-            System.out.println(jwtAuthenticationConfig.getSecretKey());
-
             Jwts.parser().verifyWith(jwtAuthenticationConfig.getSecretKey()).build()
                 .parseSignedClaims(token);
             return true;

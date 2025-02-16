@@ -16,7 +16,7 @@ public class JwtAuthenticationConfig {
 
     public JwtAuthenticationConfig(@Value("${spring.jwt.secret}") String secretKey) {
         this.secretKey = secretKey;
-        System.out.println(secretKey);
+
     }
 
 

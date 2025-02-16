@@ -15,8 +15,8 @@ public class RouteConfig {
     public RouteLocator routeLocator(RouteLocatorBuilder routeBuilder) {
 
         return routeBuilder.routes()
-            .route("calender-service", r -> r.path("/api/calender/**")
-                .uri("lb://calender-service"))
+            .route("calendar-service", r -> r.path("/api/calendar/**")
+                .uri("lb://calendar-service"))
             .route("auth-service",r -> r.path("/api/auth/**")
                 .uri("lb://auth-service"))
             .build();
