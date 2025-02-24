@@ -34,7 +34,7 @@ jobs:
           context: .
           file: ./Dockerfile
           push: true
-          tags: ${{secrets.DOCKERHUB_USERNAME}}/config
+          tags: ${{secrets.DOCKERHUB_USERNAME}}/gateway
           platforms: linux/amd64
 
 
