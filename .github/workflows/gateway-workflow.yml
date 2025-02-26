@@ -36,5 +36,9 @@ jobs:
           push: true
           tags: ${{secrets.DOCKERHUB_USERNAME}}/gateway
           platforms: linux/amd64
+          build-args: |
+            SECRETS_USERNAME=${{secrets.username}}
+            SECRETS_PASSWORD=${{secrets.password}}
+
 
 
